@@ -5,6 +5,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import spring.rickandmorty.client.RickAndMortyApiClient;
+import spring.rickandmorty.dto.ExternalCharacterDto;
 import spring.rickandmorty.mapper.CharacterMapper;
 import spring.rickandmorty.model.Character;
 import spring.rickandmorty.repository.CharacterRepository;
@@ -27,7 +28,7 @@ public class DataInitializer {
         }
     }
 
-    private Character mapToCharacter(spring.rickandmorty.dto.ExternalCharacterDto dto) {
+    private Character mapToCharacter(ExternalCharacterDto dto) {
         Character character = mapper.toEntity(dto);
         character.setExternalId(dto.getId().toString());
         return character;
